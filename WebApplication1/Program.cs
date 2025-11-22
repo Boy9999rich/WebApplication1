@@ -27,6 +27,16 @@ namespace WebApplication1
 
             app.UseAuthorization();
 
+            app.UseRouting(); // Agar yo'q bo'lsa qo'shing
+                              // ...
+                              // Eng oddiy "Hello World" javobini "/" yo'lida qaytaradi
+            app.MapGet("/", async context =>
+            {
+                await context.Response.WriteAsync("WebApplication1 is running! Use /swagger to see API endpoints.");
+            });
+
+            app.MapControllers();
+            app.Run();
 
             app.MapControllers();
 
